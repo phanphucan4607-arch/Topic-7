@@ -102,7 +102,34 @@ pip3 install flask
 #### Giai đoạn 3: Cấu hình ProxyPass trên OpenLiteSpeed
 <img width="807" height="756" alt="image" src="https://github.com/user-attachments/assets/fed151f3-649b-479e-9e90-942b9a0b7ac0" />
 
+**Bước 1. cấu hình proxy**
 
-Bước 2. Tạo External Application 
-<img width="807" height="756" alt="image" src="https://github.com/user-attachments/assets/a4679e09-e8a9-40a0-8c3f-be9485157620" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/53bf939f-9df0-4603-9c31-b625ec6ad17a" />
 
+Nhấn Add chọn web server
+<img width="811" height="183" alt="image" src="https://github.com/user-attachments/assets/5e4fc412-8ca0-4137-82b5-500d8bf468d1" />
+
+thông tin ta nhập
+
++ name: Python_Flask_API
+
++ Address: ta để ip localhost và cổng là 5000 (172.0.0.1: 5000)
+
++ Max Connections: 100
+
++ intial request timeout: 60
+
++ rerey Timeout: 0
+
+==> save 
+sau khi save thì nó sẽ hiện thông báo bắt mình restart lại nên ta click vào biểu tuợng sau
+<img width="205" height="159" alt="image" src="https://github.com/user-attachments/assets/4d04176e-6f94-4711-9974-73a225534c07" />
+
+quay lại tab Virtual Hosts vào doamin của mình 
+<img width="873" height="415" alt="image" src="https://github.com/user-attachments/assets/fb4455ac-31cd-4d22-8e17-11220b2c9711" />
+
+vào tab context cấu hình như sau 
+<img width="853" height="531" alt="image" src="https://github.com/user-attachments/assets/a3fb60d5-3a0c-4126-822e-ca24e714c22f" />
+
+==> save và restart lại 
+<img width="851" height="169" alt="image" src="https://github.com/user-attachments/assets/c5604a7c-f273-42cc-b6b9-6837d5fbb34b" />
