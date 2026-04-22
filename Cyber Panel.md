@@ -26,3 +26,18 @@
 | **Lớp ngoài (Mặt tiền)** | Tiếp nhận yêu cầu từ người dùng và hiển thị nội dung website chính. | WordPress / Laravel (Cổng 80/443) |
 | **Lớp trong (Hậu trường)** | Xử lý các logic nghiệp vụ riêng biệt, tính toán dữ liệu hoặc cung cấp API. | Python Flask (Cổng nội bộ 5000) |
 | **Cầu nối (Proxy)** | Điều hướng lưu lượng từ đường dẫn `/api` về ứng dụng chạy tại cổng 5000. | OpenLiteSpeed ProxyPass |
+
+
+### Giai đoạn 1: Cài đặt CyberPanel và Thiết lập Website
+
+Bước 1: Cài đặt CyberPanel lên VPS
+```
+sh <(curl https://cyberpanel.net/install.sh || wget -O - https://cyberpanel.net/install.sh)
+```
+
++ Chọn số 1 (Install CyberPanel).
+<img width="580" height="282" alt="image" src="https://github.com/user-attachments/assets/80d0b28e-546d-4035-970a-465677759a85" />
+
++ Chọn số 1 (Install CyberPanel with OpenLiteSpeed).
+  <img width="580" height="282" alt="image" src="https://github.com/user-attachments/assets/daebacbf-abf3-4330-b718-e6a7d375791a" />
+
