@@ -90,3 +90,19 @@ https://wp.phucan.vietnix.tech/
 
 
 #### Giai đoạn 2: Cài đặt ứng dụng Python (Port 5000)
+
+tạo một ứng dụng Python Flask đơn giản để kiêm tra tính năng proxy
+```
+apt update && apt install python3-pip -y
+pip3 install flask
+```
+
+
+
+#### Giai đoạn 3: Cấu hình ProxyPass trên OpenLiteSpeed
+<img width="807" height="756" alt="image" src="https://github.com/user-attachments/assets/fed151f3-649b-479e-9e90-942b9a0b7ac0" />
+
+
+Bước 2. Tạo External Application 
+<img width="807" height="756" alt="image" src="https://github.com/user-attachments/assets/a4679e09-e8a9-40a0-8c3f-be9485157620" />
+
