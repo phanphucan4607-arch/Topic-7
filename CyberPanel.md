@@ -195,7 +195,9 @@ WantedBy=multi-user.target
 lưu và thoát sau đó kích hoạt lại dịch vụ
 
 systemctl daemon-reload 
+
 systemctl enable python_api
+
 systemctl strart python_api 
 
 Kiểm tra
