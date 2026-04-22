@@ -206,7 +206,16 @@ https://wp.phucan.vietnix.tech/
 
 <img width="850" height="722" alt="image" src="https://github.com/user-attachments/assets/1cf0bcbe-daf3-4560-ab68-3c91cf63a4b9" />
 
++ Kích hoạt Issue SSL
+<img width="1001" height="761" alt="image" src="https://github.com/user-attachments/assets/aaa0ca5e-60a9-4441-a60e-1c89c8b7d872" />
+
+
 -----
+
+#### Tạo website cho laravel 
+<img width="1001" height="761" alt="image" src="https://github.com/user-attachments/assets/66f07bc0-9a9d-48b8-91b0-ddc2f47c084e" />
+
+
 
 ##### Cơ chế Reverse Proxy (trong tâm)
 + Hiểu: dùng OpenliteSpeed làm "người gác cổng". Khi khác truy cập vào đừng dẫn /api/ không cho khách vào thẳng thư mục web mà bảo OpenliteSpeed: "này, hãy chạy sang cổng 5000 lấy dữ liệu từ con python về đây cho khách".
