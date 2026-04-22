@@ -169,21 +169,24 @@ EOF
 **Bước 3. Thiết lập chạy tự động (Systemd Service)**
 để ứng dụng luôn chyaj ngầm và tự khởi động cùng VPS, ta tạo một service
 1. tạo file cấu hình
-   ```
+
    nano  /etc/systemd/system/python_api.service
-   ```
+   
 
    dán nội dung sau vào
-
-   ```
+```
    [Unit]
 Description=Python Flask API Service
+
 After=network.target
 
 [Service]
 User=root
+
 WorkingDirectory=/root
+
 ExecStart=/usr/bin/python3 /root/app_api.py
+
 Restart=always
 
 [Install]
@@ -191,11 +194,10 @@ WantedBy=multi-user.target
 ```
 lưu và thoát sau đó kích hoạt lại dịch vụ
 
-```
 systemctl daemon-reload 
 systemctl enable python_api
 systemctl strart python_api 
-```
+
 Kiểm tra
 https://wp.phucan.vietnix.tech/api/
 https://wp.phucan.vietnix.tech/
