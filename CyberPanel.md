@@ -41,3 +41,10 @@ sh <(curl https://cyberpanel.net/install.sh || wget -O - https://cyberpanel.net/
 + Chọn số 1 (Install CyberPanel with OpenLiteSpeed).
   <img width="580" height="282" alt="image" src="https://github.com/user-attachments/assets/daebacbf-abf3-4330-b718-e6a7d375791a" />
 
+Visit: https://221.132.21.141:8090
+                 
+Panel username: admin                              
+
+Panel password: geHbpcRSYtYqUtBJ  
+
+<img width="689" height="90" alt="image" src="https://github.com/user-attachments/assets/2a5f8a4e-0b25-4be2-9c16-44488e1a6d5e" />
