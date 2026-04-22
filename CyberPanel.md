@@ -100,6 +100,12 @@ pip3 install flask
 
 
 #### Giai đoạn 3: Cấu hình ProxyPass trên OpenLiteSpeed
+Mặc định CyberPanel cài OpenLiteSpeed nhưng cần phải tạo mật khẩu để vào trang quảng trị này: 
+```
+/us/local/lsws/admin/misc/admpass.sh
+```
+
+làm thoe tương tự thoe hướng dẫn sau đó truy cập: https:221.21.
 <img width="807" height="756" alt="image" src="https://github.com/user-attachments/assets/fed151f3-649b-479e-9e90-942b9a0b7ac0" />
 
 **Bước 1. cấu hình proxy**
