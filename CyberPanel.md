@@ -30,7 +30,7 @@
 
 ### Giai đoạn 1: Cài đặt CyberPanel và Thiết lập Website
 
-Bước 1: Cài đặt CyberPanel lên VPS
+#### Bước 1: Cài đặt CyberPanel lên VPS
 ```
 sh <(curl https://cyberpanel.net/install.sh || wget -O - https://cyberpanel.net/install.sh)
 ```
@@ -48,3 +48,45 @@ Panel username: admin
 Panel password: geHbpcRSYtYqUtBJ  
 
 <img width="689" height="90" alt="image" src="https://github.com/user-attachments/assets/2a5f8a4e-0b25-4be2-9c16-44488e1a6d5e" />
+
+#### Bước 2. Tạo Website & Cài đặt SSL
+<img width="1920" height="1080" alt="Screenshot from 2026-04-22 10-02-07" src="https://github.com/user-attachments/assets/b3c07313-5b05-4507-9b1b-8be00239eb4b" />
+
++ cáu hình SSL nhấn Issue SSL
+<img width="1143" height="728" alt="image" src="https://github.com/user-attachments/assets/240e496c-4b5c-4bc7-ba7f-f532f52bfd05" />
+  
+#### Bước 4. Upload dữ liệu và database
+
+Dữ liệu: Vào File Manager của website mới tạo -> Vào thư mục public_html. Upload file nén .zip của web cũ lên và giải nén (Extract) tại đây.
+
+<img width="1143" height="728" alt="image" src="https://github.com/user-attachments/assets/ec012eeb-3dfb-4533-aeb0-ab88f8634297" />
+
++ database: Vào Databases -> Create Database. Lưu lại tên DB, User, Password.
+
+<img width="1152" height="956" alt="image" src="https://github.com/user-attachments/assets/5ccc2edc-7475-448e-9b38-bbc9d09f9ed0" />
+
+Database Name:  wp_admin
+
+user:  wp_admin  
+
+pass: gOk2w3Lylremv!Nd
+
+
+Database: * Vào Databases -> Create Database. Lưu lại tên DB, User, Password.
+
++ vào PHPMyAdmin vào cái data vừa mới tạo imporrt .sql cũ vào
+<img width="1152" height="956" alt="image" src="https://github.com/user-attachments/assets/da833244-9eee-47df-bcc9-b4622b8195c5" />
+
+nén và import file sql 
+<img width="1152" height="956" alt="image" src="https://github.com/user-attachments/assets/5967b028-89ae-459a-bbbe-32620ccbc97e" />
+
+Cấu hình: Mở file wp-config.php trong File Manager, sửa lại DB_NAME, DB_USER, DB_PASSWORD cho đúng với thông tin mới vừa tạo.
+  <img width="1151" height="1007" alt="image" src="https://github.com/user-attachments/assets/fadc06ce-5c0e-4dda-a7eb-293b9389ac9a" />
+
++ Kiểm tra
+https://wp.phucan.vietnix.tech/
+
+<img width="1177" height="1001" alt="image" src="https://github.com/user-attachments/assets/c4ae9e3b-7210-40fe-b1f1-8127e63eea6a" />
+
+
+#### Giai đoạn 2: Cài đặt ứng dụng Python (Port 5000)
