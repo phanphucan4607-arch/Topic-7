@@ -100,15 +100,16 @@ pip3 install flask
 
 
 #### Giai đoạn 3: Cấu hình ProxyPass trên OpenLiteSpeed
+**Bước 1. Vào trang quản trị OpenLiteSpeed (Port 7080)**
 Mặc định CyberPanel cài OpenLiteSpeed nhưng cần phải tạo mật khẩu để vào trang quảng trị này: 
 ```
 /us/local/lsws/admin/misc/admpass.sh
 ```
 
-làm thoe tương tự thoe hướng dẫn sau đó truy cập: https:221.21.
+làm thoe tương tự thoe hướng dẫn sau đó truy cập: https://221.132.21.141:7080
 <img width="807" height="756" alt="image" src="https://github.com/user-attachments/assets/fed151f3-649b-479e-9e90-942b9a0b7ac0" />
 
-**Bước 1. cấu hình proxy**
+**Bước 2: Tạo External Application (Ứng dụng đích)**
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/53bf939f-9df0-4603-9c31-b625ec6ad17a" />
 
@@ -131,6 +132,7 @@ thông tin ta nhập
 sau khi save thì nó sẽ hiện thông báo bắt mình restart lại nên ta click vào biểu tuợng sau
 <img width="205" height="159" alt="image" src="https://github.com/user-attachments/assets/4d04176e-6f94-4711-9974-73a225534c07" />
 
+**Bước 3: Tạo Context (Đường dẫn Proxy)**
 quay lại tab Virtual Hosts vào doamin của mình 
 <img width="873" height="415" alt="image" src="https://github.com/user-attachments/assets/fb4455ac-31cd-4d22-8e17-11220b2c9711" />
 
@@ -139,3 +141,62 @@ vào tab context cấu hình như sau
 
 ==> save và restart lại 
 <img width="851" height="169" alt="image" src="https://github.com/user-attachments/assets/c5604a7c-f273-42cc-b6b9-6837d5fbb34b" />
+
+#### Giai đoạn 4: Triển khai ứng dụng Python Flask
+**Bước 1. Cài đặt môi trường python**
+vì hệ thống yêu cầu bảo mật môi trường , ta cần cài dặt flask thông qua trình quản lý gói của hệ điều hành
+```
+apt install python3-flask -y
+```
+
+**Bước 2. Khởi tại mã nguồn API**
+tạo file app_api.py tại thư mục root để làm backend phục vụ yêu cầu từ proxy
+```
+cat <<EOF > /root/app_api.py
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+@app.route('/api/')
+def home():
+    return "<h1>🚀 Python API Dashboard</h1><p>Trạng thái: Đang hoạt động trên Port 5000</p>"
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
+EOF
+```
+
+**Bước 3. Thiết lập chạy tự động (Systemd Service)**
+để ứng dụng luôn chyaj ngầm và tự khởi động cùng VPS, ta tạo một service
+1. tạo file cấu hình
+   ```
+   nano  /etc/systemd/system/python_api.service
+   ```
+
+   dán nội dung sau vào
+
+   ```
+   [Unit]
+Description=Python Flask API Service
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/root
+ExecStart=/usr/bin/python3 /root/app_api.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+lưu và thoát sau đó kích hoạt lại dịch vụ
+
+```
+systemctl daemon-reload 
+systemctl enable python_api
+systemctl strart python_api 
+```
+Kiểm tra
+https://wp.phucan.vietnix.tech/api/
+https://wp.phucan.vietnix.tech/
+
