@@ -1,4 +1,4 @@
-**1. Mục tiêu bài học (Objectives)**
+###  Mục tiêu bài học (Objectives)
 
 + Chuyển đổi môi trường quản trị (Migration): Hiểu cách di chuyển dữ liệu giữa các Control Panel khác nhau (từ aaPanel sang CyberPanel) mà vẫn đảm bảo tính nguyên vẹn của dữ liệu và cấu hình.
 
@@ -18,9 +18,11 @@
 + cách khởi tạo một dich vụ chạy trên cổng nội bộ (localhost:5000)
 + sự khác biệt giữa truy cập qua cổng (ip:5000) và truy cập gián tiếp qua tên miền (Doamin/api)
 
-**C. Cáu hình External Application và context**
 
-Thành phần,Vai trò,Công nghệ
-Lớp ngoài (Mặt tiền),Tiếp nhận yêu cầu từ người dùng và hiển thị nội dung website chính.,WordPress / Laravel (Cổng 80/443)
-Lớp trong (Hậu trường),"Xử lý các logic nghiệp vụ riêng biệt, tính toán dữ liệu hoặc cung cấp API.",Python Flask (Cổng nội bộ 5000)
-Cầu nối (Proxy),Điều hướng lưu lượng từ đường dẫn /api về ứng dụng chạy tại cổng 5000.,OpenLiteSpeed ProxyPass
+### Cấu trúc hệ thống Hybrid Web Service
+
+| Thành phần | Vai trò | Công nghệ |
+| :--- | :--- | :--- |
+| **Lớp ngoài (Mặt tiền)** | Tiếp nhận yêu cầu từ người dùng và hiển thị nội dung website chính. | WordPress / Laravel (Cổng 80/443) |
+| **Lớp trong (Hậu trường)** | Xử lý các logic nghiệp vụ riêng biệt, tính toán dữ liệu hoặc cung cấp API. | Python Flask (Cổng nội bộ 5000) |
+| **Cầu nối (Proxy)** | Điều hướng lưu lượng từ đường dẫn `/api` về ứng dụng chạy tại cổng 5000. | OpenLiteSpeed ProxyPass |
