@@ -175,7 +175,7 @@ EOF
 
    dán nội dung sau vào
 ```
-   [Unit]
+[Unit]
 Description=Python Flask API Service
 
 After=network.target
@@ -201,4 +201,16 @@ systemctl strart python_api
 Kiểm tra
 https://wp.phucan.vietnix.tech/api/
 https://wp.phucan.vietnix.tech/
+
+<img width="850" height="722" alt="image" src="https://github.com/user-attachments/assets/1cf0bcbe-daf3-4560-ab68-3c91cf63a4b9" />
+
+-----
+
+##### Cơ chế Reverse Proxy (trong tâm)
++ Hiểu: dùng OpenliteSpeed làm "người gác cổng". Khi khác truy cập vào đừng dẫn /api/ không cho khách vào thẳng thư mục web mà bảo OpenliteSpeed: "này, hãy chạy sang cổng 5000 lấy dữ liệu từ con python về đây cho khách".
++ tại sao cần: Dể chạy được nhiều loại ngôn ngữ khac nhau _php cho wordPress, Python cho API) trên cùng một tên miền và cùng một coongre 443(HTTPS)
+  .
+##### Quản trị system service 
++ Kiến thức: cách biến một file lẻ loi (.py) thành một dịch vụ hệ thống (service).
++ lợi ích: tự dộng khởi động khi bật VPS, tự động cahyj lại nếu bị crash, và chạy ngầm không cần treo màn hình Terminal.
 
