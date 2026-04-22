@@ -215,6 +215,26 @@ https://wp.phucan.vietnix.tech/
 #### Tạo website cho laravel 
 <img width="1001" height="761" alt="image" src="https://github.com/user-attachments/assets/66f07bc0-9a9d-48b8-91b0-ddc2f47c084e" />
 
+Dữ liệu: Vào File Manager của website mới tạo -> Vào thư mục public_html. Upload file nén .zip của web cũ lên và giải nén (Extract) tại đây.
+
+<img width="1001" height="761" alt="image" src="https://github.com/user-attachments/assets/f03e61e9-909d-43ba-ac60-aaeaff59669b" />
+
++ Tạo database riêng cho laravel
+
+  User: lara_admin
+
+  data: lara_admin
+
+  pass: geHbpcRSYtYqUtBJ
+  
+<img width="1001" height="761" alt="image" src="https://github.com/user-attachments/assets/d09e5b3b-f653-4fd4-8d53-87889b37a57d" />
+
++ Tiếp vào PhpMyadmin import sql của laravel
+  <img width="1001" height="348" alt="image" src="https://github.com/user-attachments/assets/7bfabdd2-b4a7-439e-ac9e-a16ee82429dd" />
+
+vào file .env để chỉnh lại biến cho laravel
+<img width="1001" height="584" alt="image" src="https://github.com/user-attachments/assets/e28f1ac5-fe3c-4881-80a8-4d1143876d0c" />
+
 
 
 ##### Cơ chế Reverse Proxy (trong tâm)
