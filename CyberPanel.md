@@ -235,7 +235,19 @@ Dữ liệu: Vào File Manager của website mới tạo -> Vào thư mục publ
 vào file .env để chỉnh lại biến cho laravel
 <img width="1001" height="584" alt="image" src="https://github.com/user-attachments/assets/e28f1ac5-fe3c-4881-80a8-4d1143876d0c" />
 
+ nếu truy cập tên miền sẽ báo lỗi 403 hoặc danh sách file vì server đang nhìn vào thư mục gốc, trong khi laravel yêu cầu nhìn bào thư mục public.
++ vào CyberPanel -> Website -> Líst Website -> Manage
++ tìm nút vHost conf.
++ tìm đòng docRoot $VH_ROOT/public_html sauwr thành docRoot $VH_ROOT/public_html/public
 
+Cấp quyền sinh tồn cho laravel 
++ chuyển đổi sở hữu cho đúng user của web
+chown -R larav2498:larav2498 /home/laravel.phucan.vietnix.tech/public_html
+
++ Cấp quyền ghi cho strorge và cache (nếu không sẽ lỗi trắng trang)
+chmod -R 775 /home/laravel.phucan.vietnix.tech/public_html/storage
+
+chmod -R 775 /home/laravel.phucan.vietnix.tech/public_html/bootstrap/cache
 
 ##### Cơ chế Reverse Proxy (trong tâm)
 + Hiểu: dùng OpenliteSpeed làm "người gác cổng". Khi khác truy cập vào đừng dẫn /api/ không cho khách vào thẳng thư mục web mà bảo OpenliteSpeed: "này, hãy chạy sang cổng 5000 lấy dữ liệu từ con python về đây cho khách".
@@ -245,3 +257,32 @@ vào file .env để chỉnh lại biến cho laravel
 + Kiến thức: cách biến một file lẻ loi (.py) thành một dịch vụ hệ thống (service).
 + lợi ích: tự dộng khởi động khi bật VPS, tự động cahyj lại nếu bị crash, và chạy ngầm không cần treo màn hình Terminal.
 
+##### tóm lại cách để đưa laravel lên môi trường CyberPanel là
+
++ Trỏ Document Root vào thư mục /public.
+
++ Cấu hình file môi trường .env để kết nối Database.
+
++ Cấp quyền Write cho thư mục storage và cache.
+
++ Sử dụng Rewrite Rules (trong vHost) để điều hướng mọi yêu cầu về index.php.
+
+#### dối với wordress thì 
++ Triển khai amã nguồn và database: giải nén code vào thnagwr thư mục public_html, tạo data và kết nối thông qua wp-config-php
+
++ cấu hình web server: sử dụng OpneListSpeed làm nèn tảng, kêt nối với plugin LsCache để tối ưu tốc dộ xử lý trang.
+
++ Phân quyền hệ thống: Cấp quyền sở hữu thư mục cho đúng User (Fix Permissions) để WordPress có quyền tự cập nhật và cài đặt Plugin/Theme.
+
++ Xác thực & Bảo mật: Kích hoạt SSL (HTTPS) qua Let's Encrypt và cấu hình WP Mail SMTP để đảm bảo email gửi đi không bị vào Spam.
+
+
+### 📊 So sánh triển khai WordPress và Laravel (Production)
+
+| Đặc điểm | WordPress | Laravel |
+| :--- | :--- | :--- |
+| **Thư mục gốc (Root)** | `public_html` | `public_html/public` |
+| **File cấu hình** | `wp-config.php` | `.env` |
+| **Xử lý Database** | Import `.sql` thủ công | Chạy lệnh `php artisan migrate` |
+| **Cơ chế Cache** | Dùng Plugin (LSCache) | Cache trực tiếp từ Framework |
+| **Quản trị hệ thống** | Giao diện Admin (GUI) | Dòng lệnh (CLI/Artisan) |
